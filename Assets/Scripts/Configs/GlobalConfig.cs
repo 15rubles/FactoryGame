@@ -1,6 +1,9 @@
+using UnityEngine;
+
 public static class GlobalConfig
 {
     private static float speed = 2;
+    private static int coins = 0;
 
     public static float GetSpeed() {
         return speed;
@@ -10,7 +13,43 @@ public static class GlobalConfig
         GlobalConfig.speed = speed;
     }
 
+    public static int GetCoins()
+    {
+        return coins;
+    }
+
+    public static void incrementCoins()
+    {
+        coins++;
+    }
+
     public static void IncreaseSpeed(float valueToAdd) {
         speed += valueToAdd;
+    }
+
+    public static int getCoins()
+    {
+        return PlayerPrefs.GetInt(Constants.coinsVariableKey, 0);
+    }
+
+
+    public static void updateCoins(int valueToAdd)
+    {
+        PlayerPrefs.SetInt(Constants.coinsVariableKey, PlayerPrefs.GetInt(Constants.coinsVariableKey, 0) + valueToAdd);
+    }
+
+    public static int getHighScore()
+    {
+        return PlayerPrefs.GetInt(Constants.highScoreVariableKey, 0);
+    }
+
+
+    public static void updateHighScore(int currentScore)
+    {
+        int highScore = PlayerPrefs.GetInt(Constants.highScoreVariableKey, 0);
+        if (currentScore > highScore)
+        {
+            PlayerPrefs.SetInt(Constants.highScoreVariableKey, currentScore);
+        }
     }
 }

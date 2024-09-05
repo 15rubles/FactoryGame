@@ -8,4 +8,6 @@ public static class Constants
    public static readonly string spawnPointTag = "spawnPoint";
    public static readonly string playerTag = "Player";
    public static readonly string levelPiecesFolder = "Prefabs/LevelPieces";
+   public static readonly string highScoreVariableKey = "highScore";
+   public static readonly string coinsVariableKey = "coins";
 }
