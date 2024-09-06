@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxDistanceFromNavMeshBeforeLoss = 0.05f;
     [SerializeField] private float timeForPathRecalculation = 0.25f;
     [SerializeField] private bool isUpdatePosition = true;
+    [SerializeField] private float initialPlayerSpeed = 7;
+    [SerializeField] private float initialPlayerAcceleration = 8;
 
     public Vector3 destinationLineStartVector;
     public Vector3 destinationLineEndVector;
@@ -24,15 +26,17 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
-        agent.updatePosition = true;
+        agent.speed = initialPlayerSpeed;
+        agent.acceleration = initialPlayerAcceleration;
     }
 
 
     // Update is called once per frame
     void Update()
-    {    
+    {
         // agent.updatePosition = isUpdatePosition;
-        if (timer >= timeForPathRecalculation || Input.touchCount > 0) {
+        if (timer >= (timeForPathRecalculation / GlobalConfig.GetSpeedIncreasePercent()) || Input.touchCount > 0)
+        {
             Vector3 destinationPoint = FindClosestAccessiblePoint(destinationLineStart.position, 
             destinationLineEnd.position, destinationCalculationAccuracy);
             destinationPointVector = destinationPoint;
@@ -53,6 +57,13 @@ public class PlayerController : MonoBehaviour
         //     }
         // }
     }
+
+    void LateUpdate()
+    {
+        agent.speed = initialPlayerSpeed * GlobalConfig.GetSpeedIncreasePercent();
+        agent.acceleration = initialPlayerAcceleration * GlobalConfig.GetSpeedIncreasePercent();
+    }
+
     bool IsNavMeshAgentCanMove() {
         NavMeshHit hit;
         Vector3 pos = transform.position;

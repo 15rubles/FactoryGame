@@ -3,6 +3,7 @@ using UnityEngine;
 public static class GlobalConfig
 {
     private static float speed = 2;
+    private static float initialSpeed = 1;
     private static int coins = 0;
 
     public static float GetSpeed() {
@@ -11,6 +12,22 @@ public static class GlobalConfig
 
     public static void SetSpeed(float speed) {
         GlobalConfig.speed = speed;
+    }
+
+    public static float GetInitialSpeed()
+    {
+        return initialSpeed;
+    }
+
+    public static void SetInitialSpeed(float initialSpeed)
+    {
+        GlobalConfig.initialSpeed = initialSpeed;
+    }
+
+
+    public static float GetSpeedIncreasePercent()
+    {
+        return speed / initialSpeed;
     }
 
     public static int GetCoins()

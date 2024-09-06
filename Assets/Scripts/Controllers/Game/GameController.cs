@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
 
     void Awake() {
         GlobalConfig.SetSpeed(initialSpeed);
+        GlobalConfig.SetInitialSpeed(initialSpeed);
     }
 
     void LateUpdate()
