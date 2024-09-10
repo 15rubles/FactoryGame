@@ -2,17 +2,35 @@ using UnityEngine;
 
 public static class GlobalConfig
 {
+    private static float speedMultiplier = 1;
     private static float speed = 2;
     private static float initialSpeed = 1;
     private static int coins = 0;
 
-    public static float GetSpeed() {
-        return speed;
+    public static float GetSpeedMultiplied()
+    {
+        return speed * speedMultiplier;
+    }
+
+    public static float GetSpeed()
+    {
+        return speed * speedMultiplier;
     }
 
     public static void SetSpeed(float speed) {
         GlobalConfig.speed = speed;
     }
+
+    public static float GetSpeedMultiplier()
+    {
+        return speedMultiplier;
+    }
+
+    public static void SetSpeedMultiplier(float speedMultiplier)
+    {
+        GlobalConfig.speedMultiplier = speedMultiplier;
+    }
+
 
     public static float GetInitialSpeed()
     {

@@ -210,6 +210,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rotationg Lift Half
       objectReference: {fileID: 0}
+    - target: {fileID: 6584091148312203510, guid: f71763dad8a3eb54992836e32415c0b0,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584091148312203510, guid: f71763dad8a3eb54992836e32415c0b0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: e40b5d18c96978947a6e1298e8e32fe3, type: 2}
+    - target: {fileID: 6613766722869900920, guid: f71763dad8a3eb54992836e32415c0b0,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6613766722869900920, guid: f71763dad8a3eb54992836e32415c0b0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: e40b5d18c96978947a6e1298e8e32fe3, type: 2}
     - target: {fileID: 9181809313738307824, guid: f71763dad8a3eb54992836e32415c0b0,
         type: 3}
       propertyPath: m_LocalPosition.x

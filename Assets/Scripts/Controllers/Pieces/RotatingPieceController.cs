@@ -54,6 +54,6 @@ public class RotatingPieceController : MonoBehaviour
         transform.rotation = Quaternion.RotateTowards(
             transform.rotation,
             targetRotation,
-            GlobalConfig.GetSpeed() * rotationSpeed * Time.deltaTime);
+            GlobalConfig.GetSpeedMultiplied() * rotationSpeed * Time.deltaTime);
     }
 }

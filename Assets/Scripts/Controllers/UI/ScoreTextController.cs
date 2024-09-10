@@ -23,7 +23,7 @@ public class ScoreTextController : MonoBehaviour
 
     void Update()
     {
-        score += Time.deltaTime * GlobalConfig.GetSpeed() * scoreMultiplier;
+        score += Time.deltaTime * GlobalConfig.GetSpeedMultiplied() * scoreMultiplier;
         scoreText.text = Mathf.FloorToInt(score).ToString();
     }
 

@@ -618,6 +618,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Big Glass Stack New
       objectReference: {fileID: 0}
+    - target: {fileID: 5175491965354139638, guid: f5bebc32fa8aa964a92e95acef7bef3e,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175491965354139638, guid: f5bebc32fa8aa964a92e95acef7bef3e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: e40b5d18c96978947a6e1298e8e32fe3, type: 2}
     - target: {fileID: 8490529906415513366, guid: f5bebc32fa8aa964a92e95acef7bef3e,
         type: 3}
       propertyPath: m_LocalPosition.x

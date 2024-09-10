@@ -378,11 +378,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3071443333537428680, guid: cf514cbfe2394fa4f838ca5b09c497ae,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3071443333537428680, guid: cf514cbfe2394fa4f838ca5b09c497ae,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: e40b5d18c96978947a6e1298e8e32fe3, type: 2}
     - target: {fileID: 3609280106726773224, guid: cf514cbfe2394fa4f838ca5b09c497ae,
         type: 3}
       propertyPath: m_Name
       value: Rotating Lift L Shape
       objectReference: {fileID: 0}
+    - target: {fileID: 4717681249551542756, guid: cf514cbfe2394fa4f838ca5b09c497ae,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717681249551542756, guid: cf514cbfe2394fa4f838ca5b09c497ae,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: e40b5d18c96978947a6e1298e8e32fe3, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

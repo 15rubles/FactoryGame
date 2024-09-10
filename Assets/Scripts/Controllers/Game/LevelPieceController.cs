@@ -6,6 +6,6 @@ public class LevelPieceController : MonoBehaviour
 {
      void Update()
     {
-        transform.Translate(Vector3.back * GlobalConfig.GetSpeed() * Time.deltaTime);
+        transform.Translate(Vector3.back * GlobalConfig.GetSpeedMultiplied() * Time.deltaTime);
     }
 }
