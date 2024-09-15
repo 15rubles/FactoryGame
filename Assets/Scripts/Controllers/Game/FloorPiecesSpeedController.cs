@@ -32,8 +32,6 @@ public class FloorPiecesSpeedController : MonoBehaviour
         {
             ChangeSpeedMultiplier(1);
         }
-
-        Debug.Log(GlobalConfig.GetSpeedMultiplier());
     }
 
     void ChangeSpeedMultiplier(float targetMultiplier)

@@ -150,6 +150,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShrinkObject (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1409509486280732402, guid: f4fc1567379c0514084004b83c511581,
+        type: 3}
+      propertyPath: isFlipped
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2560504462343276785, guid: f4fc1567379c0514084004b83c511581,
         type: 3}
       propertyPath: maxScale

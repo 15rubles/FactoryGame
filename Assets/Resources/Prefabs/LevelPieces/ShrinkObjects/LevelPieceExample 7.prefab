@@ -304,6 +304,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShrinkObject 1
       objectReference: {fileID: 0}
+    - target: {fileID: 838618995044197582, guid: 1583ef58632d74747884bff8a4dff691,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3981922918975268841, guid: 1583ef58632d74747884bff8a4dff691,
         type: 3}
       propertyPath: maxScale
@@ -374,6 +379,16 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9057000174477710020, guid: 1583ef58632d74747884bff8a4dff691,
+        type: 3}
+      propertyPath: maxScale
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9057000174477710020, guid: 1583ef58632d74747884bff8a4dff691,
+        type: 3}
+      propertyPath: isFlipped
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -397,6 +412,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ShrinkObject 1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 838618995044197582, guid: 1583ef58632d74747884bff8a4dff691,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 3981922918975268841, guid: 1583ef58632d74747884bff8a4dff691,
         type: 3}
@@ -467,6 +487,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9057000174477710020, guid: 1583ef58632d74747884bff8a4dff691,
+        type: 3}
+      propertyPath: maxScale
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9057000174477710020, guid: 1583ef58632d74747884bff8a4dff691,
+        type: 3}
+      propertyPath: isFlipped
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
