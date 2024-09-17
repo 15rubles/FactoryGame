@@ -9,11 +9,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform destinationLineEnd; 
     [SerializeField] private float destinationCalculationAccuracy = 1f;
     [SerializeField] private float closestDistanceAccuracy = 0.05f;
-    [SerializeField] private float maxDistanceFromNavMeshBeforeLoss = 0.05f;
     [SerializeField] private float timeForPathRecalculation = 0.25f;
-    [SerializeField] private bool isUpdatePosition = true;
     [SerializeField] private float initialPlayerSpeed = 7;
     [SerializeField] private float initialPlayerAcceleration = 8;
+    [SerializeField] private float maxRotationAngle = 30;
+    [SerializeField] private float secondToLerpToTargetRotation = 0.3f;
+    [SerializeField] private float targetRotation = 1;
 
     public Vector3 destinationLineStartVector;
     public Vector3 destinationLineEndVector;
@@ -34,7 +35,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // agent.updatePosition = isUpdatePosition;
         if (timer >= (timeForPathRecalculation / GlobalConfig.GetSpeedIncreasePercent()) || Input.touchCount > 0)
         {
             Vector3 destinationPoint = FindClosestAccessiblePoint(destinationLineStart.position, 
@@ -48,14 +48,8 @@ public class PlayerController : MonoBehaviour
         } else {
             timer += Time.deltaTime;
         }
-       
-        // if (IsNavMeshAgentCanMove()) {
-        //     Debug.Log(agent.path.corners + " " + agent.path.corners.Length);
-        //     if (agent.path.corners.Length > 2) {
-        //         Vector3 direction = (agent.path.corners[1]  - agent.path.corners[0]).normalized;
-        //         transform.Translate(direction * GlobalConfig.GetSpeed() * Time.deltaTime);
-        //     }
-        // }
+        targetRotation = GetTargetRotation();
+        ChangeRotation(GetTargetRotation());
     }
 
     void LateUpdate()
@@ -64,33 +58,47 @@ public class PlayerController : MonoBehaviour
         agent.acceleration = initialPlayerAcceleration * GlobalConfig.GetSpeedIncreasePercent();
     }
 
-    bool IsNavMeshAgentCanMove() {
-        NavMeshHit hit;
-        Vector3 pos = transform.position;
-        pos.y = 0.15f;
-        if (NavMesh.SamplePosition(pos, out hit, 10f, NavMesh.AllAreas)) 
-        {
-            Debug.Log("Distance: " + Vector3.Distance(pos, hit.position));
-            Debug.DrawLine(pos,  hit.position, Color.green, 1f);
-            if (Vector3.Distance(pos, hit.position) > maxDistanceFromNavMeshBeforeLoss) {
-                return true; 
-           }
-        }
-        return false;
-        
+    float ConvertVector2ToRotationAngle(Vector2 vector)
+    {
+        return Mathf.Rad2Deg * Mathf.Atan(vector.x / vector.y);
     }
 
-    // private void OnEnable()
-    // {
-    //     // Subscribe to the NavMesh.OnNavMeshPreUpdate event
-    //     NavMesh.onPreUpdate += OnNavMeshPreUpdate;
-    // }
+    float GetTargetRotation()
+    {
+        Debug.DrawLine(transform.position, transform.position + new Vector3(agent.velocity.x, 0, agent.velocity.z) * 3);
+        float velocityRotationAngle = ConvertVector2ToRotationAngle(new Vector2(agent.velocity.x, agent.velocity.z));
+        Debug.Log("Angle: " + velocityRotationAngle);
+        if (velocityRotationAngle > 0)
+        {
+            if (velocityRotationAngle > 90)
+            {
+                return -Mathf.Clamp(180 - velocityRotationAngle, 0, maxRotationAngle);
+            }
+            else
+            {
+                return Mathf.Clamp(velocityRotationAngle, 0, maxRotationAngle);
+            }
+        }
+        else if (velocityRotationAngle < 0)
+        {
+            if (velocityRotationAngle < -90)
+            {
+                return -Mathf.Clamp(-180 - velocityRotationAngle, -maxRotationAngle, 0);
+            }
+            else
+            {
+                return Mathf.Clamp(velocityRotationAngle, -maxRotationAngle, 0);
+            }
+        }
+        return 0;
+    }
 
-    // private void OnDisable()
-    // {
-    //     // Unsubscribe from the event to prevent memory leaks
-    //     NavMesh.onPreUpdate -= OnNavMeshPreUpdate;
-    // }
+    void ChangeRotation(float targetRotation)
+    {
+        Vector3 rotation = transform.rotation.eulerAngles;
+        rotation.y = Mathf.LerpAngle(rotation.y, targetRotation, 1 / secondToLerpToTargetRotation * Time.deltaTime);
+        transform.eulerAngles = rotation;
+    }
 
     public Vector3 FindClosestAccessiblePoint(Vector3 lineStart, Vector3 lineEnd, float maxDistance)
     {
@@ -149,9 +157,6 @@ public class PlayerController : MonoBehaviour
 
         NavMesh.CalculatePath(currentPosition, firstPoint, NavMesh.AllAreas, path1);
         NavMesh.CalculatePath(currentPosition, secondPoint, NavMesh.AllAreas, path2);
-        // Debug.Log(NavMesh.CalculatePath(currentPosition, firstPoint, NavMesh.AllAreas, path1));
-        // Debug.Log("curr: " + currentPosition + " firstPos: " + firstPoint + " second: " + secondPoint);
-        // Debug.Log("Path1: " + CalculatePathLength(path1) + " path: " + path1 + " Path2: " + CalculatePathLength(path2) + " path: " + path2);
 
         return CalculatePathLength(path1) > CalculatePathLength(path2);
     }
@@ -167,5 +172,4 @@ public class PlayerController : MonoBehaviour
 
         return length;
     }
-
 }
