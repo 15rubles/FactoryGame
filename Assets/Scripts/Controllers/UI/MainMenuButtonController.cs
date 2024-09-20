@@ -7,6 +7,7 @@ public class MainMenuButtonController : MonoBehaviour
 {
     public void GoToMainMenu()
     {
+        GlobalConfig.SetOnPause(false);
         GlobalConfig.UpdateHighScore(ScoreTextController.instance.GetScore());
         GlobalConfig.UpdateTotalCoins(CoinsTextController.instance.GetCoins());
         Scene currentScene = SceneManager.GetActiveScene();

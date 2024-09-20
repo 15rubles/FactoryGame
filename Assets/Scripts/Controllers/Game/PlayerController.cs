@@ -172,4 +172,9 @@ public class PlayerController : MonoBehaviour
 
         return length;
     }
+
+    public bool IsMovingForward()
+    {
+        return agent.velocity.normalized.z > 0;
+    }
 }
