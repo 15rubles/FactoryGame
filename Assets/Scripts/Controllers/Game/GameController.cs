@@ -10,10 +10,14 @@ public class GameController : MonoBehaviour
     void Awake() {
         GlobalConfig.SetSpeed(initialSpeed);
         GlobalConfig.SetInitialSpeed(initialSpeed);
+        Time.timeScale = 0;
     }
 
     void LateUpdate()
     {
-        GlobalConfig.IncreaseSpeed(increaseByPerMinute * Time.deltaTime / 60);
+        if (Time.timeScale > 0 && !GlobalConfig.GetGameOver())
+        {
+            GlobalConfig.IncreaseSpeed(increaseByPerMinute * Time.deltaTime / 60);
+        }
     }
 }

@@ -9,6 +9,11 @@ public class HighScoreTextController : MonoBehaviour
 
     void Start()
     {
-        highScoreText.text = GlobalConfig.getHighScore().ToString();
+        highScoreText.text = GlobalConfig.GetHighScore().ToString();
+    }
+
+    void OnEnable()
+    {
+        highScoreText.text = GlobalConfig.GetHighScore().ToString();
     }
 }

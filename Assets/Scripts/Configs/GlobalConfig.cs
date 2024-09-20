@@ -5,7 +5,27 @@ public static class GlobalConfig
     private static float speedMultiplier = 1;
     private static float speed = 2;
     private static float initialSpeed = 1;
-    private static int coins = 0;
+    private static bool onPause = false;
+    private static bool gameOver = false;
+
+    public static bool GetOnPause()
+    {
+        return onPause;
+    }
+
+    public static void SetOnPause(bool onPause)
+    {
+        GlobalConfig.onPause = onPause;
+    }
+    public static bool GetGameOver()
+    {
+        return gameOver;
+    }
+
+    public static void SetGameOver(bool gameOver)
+    {
+        GlobalConfig.gameOver = gameOver;
+    }
 
     public static float GetSpeedMultiplied()
     {
@@ -48,38 +68,27 @@ public static class GlobalConfig
         return speed / initialSpeed;
     }
 
-    public static int GetCoins()
-    {
-        return coins;
-    }
-
-    public static void incrementCoins()
-    {
-        coins++;
-    }
-
     public static void IncreaseSpeed(float valueToAdd) {
         speed += valueToAdd;
     }
 
-    public static int getCoins()
+    public static int GetTotalCoins()
     {
         return PlayerPrefs.GetInt(Constants.coinsVariableKey, 0);
     }
 
 
-    public static void updateCoins(int valueToAdd)
+    public static void UpdateTotalCoins(int valueToAdd)
     {
         PlayerPrefs.SetInt(Constants.coinsVariableKey, PlayerPrefs.GetInt(Constants.coinsVariableKey, 0) + valueToAdd);
     }
 
-    public static int getHighScore()
+    public static int GetHighScore()
     {
         return PlayerPrefs.GetInt(Constants.highScoreVariableKey, 0);
     }
 
-
-    public static void updateHighScore(int currentScore)
+    public static void UpdateHighScore(int currentScore)
     {
         int highScore = PlayerPrefs.GetInt(Constants.highScoreVariableKey, 0);
         if (currentScore > highScore)

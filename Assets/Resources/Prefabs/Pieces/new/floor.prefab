@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4120495427104070910
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3959425162402647503}
+  m_Layer: 0
+  m_Name: FloorPieceSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3959425162402647503
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4120495427104070910}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -20.814999}
+  m_LocalScale: {x: 6.53, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6163135422779285998}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7780190639961961599
 GameObject:
   m_ObjectHideFlags: 0
@@ -33,6 +64,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3959425162402647503}
   - {fileID: 8507404670133402937}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -104,6 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 666ddee9b4dcc0c49967dcc7157975e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetFloorPoint: {fileID: 0}
+  floorPieceSpawnPoint: {fileID: 0}
 --- !u!1001 &7695570066648572424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -115,8 +149,13 @@ PrefabInstance:
     - target: {fileID: 547445613301353041, guid: d077a87686433004bb9a50719bfc1ad5,
         type: 3}
       propertyPath: m_Materials.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 547445613301353041, guid: d077a87686433004bb9a50719bfc1ad5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8158c383d2b12a248ac5f1b1c39a46a9, type: 2}
     - target: {fileID: 547445613301353041, guid: d077a87686433004bb9a50719bfc1ad5,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
@@ -125,7 +164,7 @@ PrefabInstance:
     - target: {fileID: 767684873058534628, guid: d077a87686433004bb9a50719bfc1ad5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.913738
+      value: 4.46
       objectReference: {fileID: 0}
     - target: {fileID: 767684873058534628, guid: d077a87686433004bb9a50719bfc1ad5,
         type: 3}
@@ -200,7 +239,7 @@ PrefabInstance:
     - target: {fileID: 2853159509201750465, guid: d077a87686433004bb9a50719bfc1ad5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.7
+      value: -4.25
       objectReference: {fileID: 0}
     - target: {fileID: 2853159509201750465, guid: d077a87686433004bb9a50719bfc1ad5,
         type: 3}
@@ -225,8 +264,13 @@ PrefabInstance:
     - target: {fileID: 3248986102403824007, guid: d077a87686433004bb9a50719bfc1ad5,
         type: 3}
       propertyPath: m_Materials.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3248986102403824007, guid: d077a87686433004bb9a50719bfc1ad5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8158c383d2b12a248ac5f1b1c39a46a9, type: 2}
     - target: {fileID: 3248986102403824007, guid: d077a87686433004bb9a50719bfc1ad5,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
@@ -235,7 +279,7 @@ PrefabInstance:
     - target: {fileID: 3273752944918523662, guid: d077a87686433004bb9a50719bfc1ad5,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5466439185414139096, guid: d077a87686433004bb9a50719bfc1ad5,
         type: 3}
@@ -280,7 +324,7 @@ PrefabInstance:
     - target: {fileID: 8926286835062884011, guid: d077a87686433004bb9a50719bfc1ad5,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

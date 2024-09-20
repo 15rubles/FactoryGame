@@ -6,9 +6,7 @@ public class ShrinkObjectController : MonoBehaviour
 {
     [SerializeField] float minScale = 1f; // Minimum Z value
     [SerializeField] float maxScale = 5f;  // Maximum Z value
-    [SerializeField] float scaleSpeed = 0.15f;  // Maximum Z value
-    [SerializeField] Vector3 worldDelta;
-    [SerializeField] float qwe = 5f;
+    [SerializeField] float scaleSpeed = 0.2f;  // Maximum Z value
 
     [SerializeField] private float hitStartZ;
     [SerializeField] private bool isDragging = false;
@@ -44,8 +42,7 @@ public class ShrinkObjectController : MonoBehaviour
                 if (Physics.Raycast(ray, out hit))
                 {
                     Debug.Log("Start: " + hitStartZ + " End: " + hit.point.z);
-                    float newScale = (hitStartZ - hit.point.z) * (isFlipped ? -1 : 1) * scaleSpeed + transform.localScale.z;
-                    qwe = hitStartZ - hit.point.z;
+                    float newScale = (hitStartZ - hit.point.z) * (isFlipped ? -1 * 1.2f : 1 * 1.3f) * scaleSpeed + transform.localScale.z;
                     hitStartZ = hit.point.z;
 
                     // Clamp the position within the minX and maxX range
