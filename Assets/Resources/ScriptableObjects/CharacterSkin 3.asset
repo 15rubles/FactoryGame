@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e05ed3bbdf8414488431f043e81c83, type: 3}
+  m_Name: CharacterSkin 3
+  m_EditorClassIdentifier: 
+  skinPrefab: {fileID: 3994333299673738174, guid: 468cd64fe198f0045b5437e296bc5b21,
+    type: 3}
+  price: 500

@@ -23,6 +23,13 @@ public class PlayerController : MonoBehaviour
 
     private float timer = 0;
 
+    public static PlayerController instance;
+
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {

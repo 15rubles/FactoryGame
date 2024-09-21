@@ -9,6 +9,7 @@ public class ContinueCountDownController : MonoBehaviour
     [SerializeField] TMP_Text countdownText;
     [SerializeField] TMP_Text countdownShadowText;
     [SerializeField] GameObject pauseButton;
+    [SerializeField] GameObject colliderForPause;
     [SerializeField] int countdownFrom = 3;
 
     public void ActivateCountDown()
@@ -34,5 +35,6 @@ public class ContinueCountDownController : MonoBehaviour
         pauseButton.SetActive(true);
         countdownShadowText.gameObject.SetActive(false);
         gameObject.SetActive(false);
+        colliderForPause.SetActive(false);
     }
 }

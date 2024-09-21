@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class CarWheelController : MonoBehaviour
 {
-    [SerializeField] PlayerController playerController;
-    [SerializeField] float wheelRotationSpeed;
+    PlayerController playerController;
+    [SerializeField] float wheelRotationSpeed = 180;
+
+    void Start()
+    {
+        playerController = PlayerController.instance;
+    }
+
     void Update()
     {
 

@@ -8,6 +8,12 @@ public static class GlobalConfig
     private static bool onPause = false;
     private static bool gameOver = false;
 
+    static GlobalConfig()
+    {
+        PlayerPrefs.SetInt(Constants.skinsVariableKey + "Monster", (int)CharacterSkinState.Purchased);
+    }
+
+
     public static bool GetOnPause()
     {
         return onPause;
@@ -95,5 +101,28 @@ public static class GlobalConfig
         {
             PlayerPrefs.SetInt(Constants.highScoreVariableKey, currentScore);
         }
+    }
+
+    public static int GetSkinState(string name)
+    {
+        return PlayerPrefs.GetInt(Constants.skinsVariableKey + name, 0);
+    }
+
+
+    public static void SetSkinState(string name, CharacterSkinState state)
+    {
+        PlayerPrefs.SetInt(Constants.skinsVariableKey + name, (int)state);
+    }
+
+
+    public static string GetSelectedSkin()
+    {
+        return PlayerPrefs.GetString(Constants.selectedSkinVariableKey, "Monster");
+    }
+
+
+    public static void SetSelectedSkin(string skinName)
+    {
+        PlayerPrefs.SetString(Constants.selectedSkinVariableKey, skinName);
     }
 }
