@@ -14,10 +14,6 @@ public class GameOverColliderController : MonoBehaviour
             gameOverScreen.SetActive(true);
             collider.gameObject.SetActive(false);
             colliderForPause.SetActive(true);
-            // GlobalConfig.UpdateHighScore(ScoreTextController.instance.GetScore());
-            // GlobalConfig.UpdateTotalCoins(GlobalConfig.GetTotalCoins() + CoinsTextController.instance.GetCoins());
-            // Scene currentScene = SceneManager.GetActiveScene();
-            // SceneManager.LoadScene(currentScene.name);
         }
     }
 }

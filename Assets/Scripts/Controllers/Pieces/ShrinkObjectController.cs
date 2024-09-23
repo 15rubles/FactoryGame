@@ -41,7 +41,6 @@ public class ShrinkObjectController : MonoBehaviour
                 // Check if the touch is on the object
                 if (Physics.Raycast(ray, out hit))
                 {
-                    Debug.Log("Start: " + hitStartZ + " End: " + hit.point.z);
                     float newScale = (hitStartZ - hit.point.z) * (isFlipped ? -1 * 1.2f : 1 * 1.3f) * scaleSpeed + transform.localScale.z;
                     hitStartZ = hit.point.z;
 

@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class SpawnerController : MonoBehaviour
 {
-
     [SerializeField] private List<GameObject> levelPieces;
 
     [SerializeField] private List<GameObject> objectsInGame;

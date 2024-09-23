@@ -72,9 +72,7 @@ public class PlayerController : MonoBehaviour
 
     float GetTargetRotation()
     {
-        Debug.DrawLine(transform.position, transform.position + new Vector3(agent.velocity.x, 0, agent.velocity.z) * 3);
         float velocityRotationAngle = ConvertVector2ToRotationAngle(new Vector2(agent.velocity.x, agent.velocity.z));
-        Debug.Log("Angle: " + velocityRotationAngle);
         if (velocityRotationAngle > 0)
         {
             if (velocityRotationAngle > 90)

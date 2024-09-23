@@ -949,6 +949,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerObject
       objectReference: {fileID: 0}
+    - target: {fileID: 3315335029314150224, guid: aa6b2c75a0b3cb64bb0e3e4334ba0d8a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3416994910634041235, guid: aa6b2c75a0b3cb64bb0e3e4334ba0d8a,
         type: 3}
       propertyPath: playerController
@@ -1643,7 +1648,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 276.00006, y: 203.50024}
+  m_AnchoredPosition: {x: 276.00006, y: 203.5}
   m_SizeDelta: {x: 527, y: 240}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &288585292
@@ -5855,7 +5860,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 7.500122, y: -476}
+  m_AnchoredPosition: {x: 7.5, y: -476}
   m_SizeDelta: {x: -736.7793, y: -2510.4392}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1089931786

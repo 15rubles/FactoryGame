@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skinPrefab: {fileID: 6611430546706599911, guid: a63760042d9abf442a6b6906c8b13f75,
     type: 3}
-  price: 5
+  price: 300
