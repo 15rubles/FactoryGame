@@ -14,4 +14,6 @@ public static class Constants
    public static readonly string coinsVariableKey = "coins";
    public static readonly string skinsVariableKey = "skin_";
    public static readonly string selectedSkinVariableKey = "selectedSkin_";
+   public static readonly string musicMixerName = "musicMixer";
+   public static readonly string soundMixerName = "soundMixer";
 }

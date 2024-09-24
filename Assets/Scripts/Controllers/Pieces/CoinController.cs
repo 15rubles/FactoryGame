@@ -4,6 +4,7 @@ public class CoinController : MonoBehaviour
 {
 
     [SerializeField] float rotationSpeed = 100f;
+    [SerializeField] private AudioClip audioClip;
 
     void Update()
     {
@@ -15,6 +16,7 @@ public class CoinController : MonoBehaviour
         if (collider.gameObject.CompareTag(Constants.playerTag))
         {
             CoinsTextController.instance.UpdateCoins(1);
+            SoundFXController.instance.PlaySound(audioClip, transform);
             Destroy(gameObject);
         }
     }

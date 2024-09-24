@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 100
+  audioClip: {fileID: 8300000, guid: d9c513fac843edd40baa586d874bfe45, type: 3}
 --- !u!1001 &3784040201189971229
 PrefabInstance:
   m_ObjectHideFlags: 0
