@@ -5,8 +5,23 @@ using UnityEngine;
 public class TapElementController : MonoBehaviour
 {
     [SerializeField] private bool wasTouched = false;
-    [SerializeField] private Vector3 newPosition;
-    [SerializeField] private float movingSpeed = 1f;
+    [SerializeField] private bool wasSet = false;
+    [SerializeField] private float newXPosition;
+    private float movingSpeed = 4f;
+
+    [SerializeField] private bool isRight;
+
+    void Start()
+    {
+        if (transform.position.x < newXPosition)
+        {
+            isRight = true;
+        }
+        else
+        {
+            isRight = false;
+        }
+    }
 
     void Update()
     {
@@ -25,9 +40,50 @@ public class TapElementController : MonoBehaviour
             }
         }
 
-        if (wasTouched)
+        if (wasTouched && !wasSet)
         {
-            transform.Translate(newPosition * movingSpeed * GlobalConfig.GetSpeedMultiplied() * Time.deltaTime);
+            if (isRight)
+            {
+                if (transform.position.x < newXPosition)
+                {
+                    if (Mathf.Abs(transform.rotation.eulerAngles.y - 180) < 10)
+                    {
+                        transform.Translate(Vector3.left * movingSpeed * GlobalConfig.GetSpeedMultiplied() * Time.deltaTime);
+                    }
+                    else
+                    {
+                        transform.Translate(Vector3.right * movingSpeed * GlobalConfig.GetSpeedMultiplied() * Time.deltaTime);
+                    }
+                }
+                else
+                {
+                    Vector3 vector = transform.position;
+                    vector.x = newXPosition;
+                    transform.position = vector;
+                    wasSet = true;
+                }
+            }
+            else
+            {
+                if (transform.position.x > newXPosition)
+                {
+                    if (Mathf.Abs(transform.rotation.eulerAngles.y - 180) < 10)
+                    {
+                        transform.Translate(Vector3.right * movingSpeed * GlobalConfig.GetSpeedMultiplied() * Time.deltaTime);
+                    }
+                    else
+                    {
+                        transform.Translate(Vector3.left * movingSpeed * GlobalConfig.GetSpeedMultiplied() * Time.deltaTime);
+                    }
+                }
+                else
+                {
+                    Vector3 vector = transform.position;
+                    vector.x = newXPosition;
+                    transform.position = vector;
+                    wasSet = true;
+                }
+            }
         }
     }
 }

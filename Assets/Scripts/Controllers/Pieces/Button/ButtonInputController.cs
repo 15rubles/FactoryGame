@@ -26,7 +26,7 @@ public class ButtonInputController : MonoBehaviour
 
             if (touch.phase == TouchPhase.Ended && wasTouched)
             {
-                buttonSwitch = !buttonSwitch;
+                buttonSwitch = true;
                 wasTouched = false;
             }
         }
