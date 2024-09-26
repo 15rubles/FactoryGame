@@ -14,11 +14,11 @@ public class ButtonRecepientController : MonoBehaviour
     {
         if (buttonInputController.GetButtonSwitch()) {
             if (transform.position.y > onValue) {
-                transform.Translate(Vector3.down * movingSpeed * Time.deltaTime);
+                transform.Translate(Vector3.down * movingSpeed * Time.deltaTime * GlobalConfig.GetSpeedMultiplied());
             }
         } else {
             if (transform.position.y < offValue) {
-                transform.Translate(Vector3.up * movingSpeed * Time.deltaTime);
+                transform.Translate(Vector3.up * movingSpeed * Time.deltaTime * GlobalConfig.GetSpeedMultiplied());
             }
         }
     }

@@ -37,7 +37,7 @@ public class SoundFXController : MonoBehaviour
 
         float clipLength = audioClip.length;
 
-        Destroy(audioSource, clipLength);
+        Destroy(audioSource.gameObject, clipLength);
     }
 
     public void MusicButton()

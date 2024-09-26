@@ -7,6 +7,7 @@ public class GameOverColliderController : MonoBehaviour
 {
     [SerializeField] GameObject gameOverScreen;
     [SerializeField] GameObject colliderForPause;
+    [SerializeField] GameObject tutorialText;
 
     void OnTriggerEnter(Collider collider) {
         if (collider.tag == Constants.playerTag) {
@@ -14,6 +15,7 @@ public class GameOverColliderController : MonoBehaviour
             gameOverScreen.SetActive(true);
             collider.gameObject.SetActive(false);
             colliderForPause.SetActive(true);
+            tutorialText.SetActive(false);
         }
     }
 }

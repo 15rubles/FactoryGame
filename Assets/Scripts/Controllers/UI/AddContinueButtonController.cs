@@ -9,6 +9,7 @@ public class AddContinueButtonController : MonoBehaviour
     [SerializeField] GameObject colliderForPause;
     [SerializeField] GameObject player;
     [SerializeField] GameObject playerSpawnPoint;
+    [SerializeField] GameObject tutorialText;
 
     public void AddContinue()
     {
@@ -19,5 +20,6 @@ public class AddContinueButtonController : MonoBehaviour
         gameObject.SetActive(false);
         gameOverScreen.SetActive(false);
         colliderForPause.SetActive(false);
+        tutorialText.SetActive(true);
     }
 }

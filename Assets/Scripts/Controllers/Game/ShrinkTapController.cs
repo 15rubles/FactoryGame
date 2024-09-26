@@ -7,7 +7,7 @@ public class ShrinkTapController : MonoBehaviour
     [SerializeField] private bool wasTouched = false;
     [SerializeField] private bool wasSet = false;
     [SerializeField] private float targetZScale = 0.5f; // The new scale on the Z-axis
-    private float scalingSpeed = 4f; // Speed at which the object scales
+    private float scalingSpeed = 9f; // Speed at which the object scales
 
     private Vector3 initialScale;
 

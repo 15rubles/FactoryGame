@@ -6,6 +6,7 @@ public class PauseButtonController : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject colliderForPause;
+    [SerializeField] GameObject tutorialText;
 
     public void PauseGame()
     {
@@ -14,5 +15,6 @@ public class PauseButtonController : MonoBehaviour
         colliderForPause.SetActive(true);
         pauseMenu.SetActive(true);
         gameObject.SetActive(false);
+        tutorialText.SetActive(false);
     }
 }

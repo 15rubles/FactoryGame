@@ -11,20 +11,20 @@ public class TapElementController : MonoBehaviour
 
     [SerializeField] private bool isRight;
 
+    private Vector3 targetPosition;
+
     void Start()
     {
-        if (transform.position.x < newXPosition)
-        {
-            isRight = true;
-        }
-        else
-        {
-            isRight = false;
-        }
+        // Determine if the object should move to the right or left
+        isRight = transform.position.x < newXPosition;
+
+        // Set the target position
+        targetPosition = new Vector3(newXPosition, transform.position.y, transform.position.z);
     }
 
     void Update()
     {
+        // Check for touch input
         if (Input.touchCount > 0 && !wasTouched)
         {
             Touch touch = Input.GetTouch(0);
@@ -40,49 +40,21 @@ public class TapElementController : MonoBehaviour
             }
         }
 
+        // If the object was touched and not yet set
         if (wasTouched && !wasSet)
         {
-            if (isRight)
+            targetPosition = new Vector3(newXPosition, transform.position.y, transform.position.z);
+            // Smoothly move the object towards the target position using Lerp
+            transform.position = Vector3.Lerp(transform.position, targetPosition, movingSpeed * Time.deltaTime * GlobalConfig.GetSpeedMultiplied());
+
+            // Check if the object has reached the target position
+            if (Mathf.Abs(transform.position.x - newXPosition) < 0.01f)
             {
-                if (transform.position.x < newXPosition)
-                {
-                    if (Mathf.Abs(transform.rotation.eulerAngles.y - 180) < 10)
-                    {
-                        transform.Translate(Vector3.left * movingSpeed * GlobalConfig.GetSpeedMultiplied() * Time.deltaTime);
-                    }
-                    else
-                    {
-                        transform.Translate(Vector3.right * movingSpeed * GlobalConfig.GetSpeedMultiplied() * Time.deltaTime);
-                    }
-                }
-                else
-                {
-                    Vector3 vector = transform.position;
-                    vector.x = newXPosition;
-                    transform.position = vector;
-                    wasSet = true;
-                }
-            }
-            else
-            {
-                if (transform.position.x > newXPosition)
-                {
-                    if (Mathf.Abs(transform.rotation.eulerAngles.y - 180) < 10)
-                    {
-                        transform.Translate(Vector3.right * movingSpeed * GlobalConfig.GetSpeedMultiplied() * Time.deltaTime);
-                    }
-                    else
-                    {
-                        transform.Translate(Vector3.left * movingSpeed * GlobalConfig.GetSpeedMultiplied() * Time.deltaTime);
-                    }
-                }
-                else
-                {
-                    Vector3 vector = transform.position;
-                    vector.x = newXPosition;
-                    transform.position = vector;
-                    wasSet = true;
-                }
+                // Snap to the exact target position
+                Vector3 finalPosition = transform.position;
+                finalPosition.x = newXPosition;
+                transform.position = finalPosition;
+                wasSet = true;
             }
         }
     }
