@@ -670,8 +670,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c979eba368fdbd149ac755f4e01aea37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  increaseByPerMinute: 2
-  initialSpeed: 3
+  increaseByPerMinute: 1.5
+  initialSpeed: 2
 --- !u!4 &33164394
 Transform:
   m_ObjectHideFlags: 0
