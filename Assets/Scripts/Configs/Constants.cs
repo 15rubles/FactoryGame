@@ -17,4 +17,5 @@ public static class Constants
    public static readonly string musicMixerName = "musicMixer";
    public static readonly string soundMixerName = "soundMixer";
    public static readonly string adsRewardVariableKey = "adsReward";
+   public static readonly string gameCountBeforeAdsVariableKey = "gameCount";
 }

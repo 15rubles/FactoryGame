@@ -12,12 +12,35 @@ string appKey = "1fb4fda55";
 string appKey = "unexpected_platform";
 #endif
 
+    private static bool hasGameStarted = false;
+
+
+    private static int gamesBeforeAds = 2;
+
     void Start()
     {
+        if (!hasGameStarted)
+        {
+            hasGameStarted = true;
+        }
+        else
+        {
+            TryToLoadInterstitial();
+        }
+
         IronSource.Agent.validateIntegration();
         IronSource.Agent.init(appKey);
         LoadRewarded();
         LoadInterstitial();
+    }
+
+    public void TryToLoadInterstitial()
+    {
+        if (gamesBeforeAds >= PlayerPrefs.GetInt(Constants.gameCountBeforeAdsVariableKey, 0))
+        {
+            PlayerPrefs.SetInt(Constants.gameCountBeforeAdsVariableKey, 0);
+            ShowInterstitial();
+        }
     }
 
     void OnEnable()

@@ -10,6 +10,7 @@ public class StartGameButtonController : MonoBehaviour
 
     public void StartGame()
     {
+        PlayerPrefs.SetInt(Constants.gameCountBeforeAdsVariableKey, PlayerPrefs.GetInt(Constants.gameCountBeforeAdsVariableKey, 0) + 1);
         Time.timeScale = 1;
         mainMenu.SetActive(false);
         playScreen.SetActive(true);
